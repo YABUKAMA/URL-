@@ -2,12 +2,20 @@
 <html lang="en">
 <head>
 <meta charset="UTF-8">
-<meta http-equiv="refresh" content="0; URL=http://example.com/new-url">
-<title>Redirecting...</title>
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>URLをファイルパスに変換する</title>
+<script>
+function convertToFilePath() {
+    var url = document.getElementById("urlInput").value;
+    var filePath = url.replace(/^.*[\\\/]/, ''); // URLからファイル名を抽出する
+    document.getElementById("filePathOutput").textContent = filePath;
+}
+</script>
 </head>
 <body>
-<script type="text/javascript">
-    window.location.href = "http://example.com/new-url";
-</script>
+<h1>URLをファイルパスに変換する</h1>
+<input type="text" id="urlInput" placeholder="URLを入力">
+<button onclick="convertToFilePath()">変換</button>
+<p id="filePathOutput"></p>
 </body>
 </html>
